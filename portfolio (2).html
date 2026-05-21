@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Noel — Projects</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+    }
+
+    /* HEADER */
+    header {
+      padding: 1.4rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #1e293b;
+      background: #0f172a;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #f8fafc;
+    }
+    .logo span { color: #3b82f6; }
+
+    nav a {
+      margin-left: 1.8rem;
+      text-decoration: none;
+      color: #94a3b8;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: #f8fafc; }
+
+    /* HERO */
+    .hero {
+      padding: 5rem 2.5rem;
+      text-align: center;
+      background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+      border-bottom: 1px solid #1e293b;
+    }
+
+    .hero-label {
+      display: inline-block;
+      background: #1e3a5f;
+      color: #60a5fa;
+      font-size: 0.78rem;
+      font-weight: 500;
+      padding: 0.35rem 1rem;
+      border-radius: 20px;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.05em;
+    }
+
+    .hero h2 {
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: #f8fafc;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .hero h2 span { color: #3b82f6; }
+
+    .hero p {
+      color: #94a3b8;
+      font-size: 1rem;
+      max-width: 480px;
+      margin: 0 auto;
+      line-height: 1.75;
+    }
+
+    /* PROJECTS */
+    .projects {
+      max-width: 1040px;
+      margin: 3.5rem auto;
+      padding: 0 2.5rem;
+    }
+
+    .section-title {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #475569;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 1.8rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #1e293b;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 1.6rem;
+      transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+    }
+
+    .card:hover {
+      border-color: #3b82f6;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(59, 130, 246, 0.1);
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+    }
+
+    .card-icon {
+      font-size: 1.6rem;
+    }
+
+    .card-num {
+      font-size: 0.7rem;
+      color: #475569;
+      font-weight: 500;
+    }
+
+    .card h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #f1f5f9;
+      margin-bottom: 0.5rem;
+    }
+
+    .card p {
+      font-size: 0.84rem;
+      color: #94a3b8;
+      line-height: 1.65;
+      margin-bottom: 1.2rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .tag {
+      font-size: 0.7rem;
+      background: #0f172a;
+      color: #60a5fa;
+      border: 1px solid #1e3a5f;
+      padding: 0.2rem 0.6rem;
+      border-radius: 5px;
+      font-weight: 500;
+    }
+
+    /* ABOUT */
+    .about {
+      max-width: 1040px;
+      margin: 0 auto 4rem;
+      padding: 0 2.5rem;
+    }
+
+    .about-box {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 2rem 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+    }
+
+    .about-box h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #f1f5f9;
+      margin-bottom: 0.8rem;
+    }
+
+    .about-box p {
+      font-size: 0.88rem;
+      color: #94a3b8;
+      line-height: 1.75;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .skill {
+      font-size: 0.78rem;
+      background: #0f172a;
+      color: #60a5fa;
+      border: 1px solid #1e3a5f;
+      padding: 0.3rem 0.8rem;
+      border-radius: 6px;
+      font-weight: 500;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.8rem;
+      color: #475569;
+      border-top: 1px solid #1e293b;
+    }
+
+    @media (max-width: 600px) {
+      .hero h2 { font-size: 1.8rem; }
+      .about-box { grid-template-columns: 1fr; }
+      nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Noel<span>.</span></div>
+    <nav>
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <span class="hero-label">Software Engineering Student</span>
+    <h2>Things I've <span>Built</span></h2>
+    <p>A collection of projects from my studies — covering web development, systems programming, and everything in between.</p>
+  </div>
+
+  <section class="projects" id="projects">
+    <p class="section-title">Selected Work</p>
+    <div class="grid">
+
+      <div class="card">
+        <div class="card-top">
+          <span class="card-icon">💧</span>
+          <span class="card-num">01</span>
+        </div>
+        <h4>AquaTrack</h4>
+        <p>A dashboard that displays real-time water quality sensor data. Built a REST API in Node.js and visualised readings with Chart.js.</p>
+        <div class="tags">
+          <span class="tag">Node.js</span>
+          <span class="tag">Chart.js</span>
+          <span class="tag">REST API</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-top">
+          <span class="card-icon">🔍</span>
+          <span class="card-num">02</span>
+        </div>
+        <h4>CodeReview CLI</h4>
+        <p>A command-line tool in C++ that performs basic static analysis on source files and outputs a colour-coded terminal report.</p>
+        <div class="tags">
+          <span class="tag">C++</span>
+          <span class="tag">CLI</span>
+          <span class="tag">Static Analysis</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-top">
+          <span class="card-icon">🧾</span>
+          <span class="card-num">03</span>
+        </div>
+        <h4>Kampuni</h4>
+        <p>A simple invoicing web app for small businesses. Supports KES/USD currency toggling and PDF export with no backend needed.</p>
+        <div class="tags">
+          <span class="tag">HTML/CSS/JS</span>
+          <span class="tag">LocalStorage</span>
+          <span class="tag">PDF.js</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-top">
+          <span class="card-icon">🌌</span>
+          <span class="card-num">04</span>
+        </div>
+        <h4>StarMap</h4>
+        <p>An interactive sky map that renders constellation data using SVG. Click any star to get its catalogue info from the HYG database.</p>
+        <div class="tags">
+          <span class="tag">JavaScript</span>
+          <span class="tag">SVG</span>
+          <span class="tag">Astronomy API</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-top">
+          <span class="card-icon">📋</span>
+          <span class="card-num">05</span>
+        </div>
+        <h4>TribeLink</h4>
+        <p>A real-time campus notice board for students to post events, lost items, and study groups. Live updates via WebSockets.</p>
+        <div class="tags">
+          <span class="tag">WebSockets</span>
+          <span class="tag">Node.js</span>
+          <span class="tag">CSS Grid</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-top">
+          <span class="card-icon">🔐</span>
+          <span class="card-num">06</span>
+        </div>
+        <h4>CipherBox</h4>
+        <p>An educational tool that visualises classical ciphers step-by-step — Rail Fence, Caesar, Vigenère, and a simplified DES walkthrough.</p>
+        <div class="tags">
+          <span class="tag">JavaScript</span>
+          <span class="tag">Cryptography</span>
+          <span class="tag">Animation</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <p class="section-title">About</p>
+    <div class="about-box">
+      <div>
+        <h3>About Me</h3>
+        <p>Software engineering student with a passion for building things that solve real problems. I enjoy working across the stack — from C++ systems tools to web front-ends.</p>
+        <p style="margin-top: 0.8rem; color: #3b82f6;">Currently open to internships & collaborations.</p>
+      </div>
+      <div>
+        <h3>Skills</h3>
+        <div class="skills">
+          <span class="skill">HTML / CSS</span>
+          <span class="skill">JavaScript</span>
+          <span class="skill">C++</span>
+          <span class="skill">Node.js</span>
+          <span class="skill">Git</span>
+          <span class="skill">OOP</span>
+          <span class="skill">REST APIs</span>
+          <span class="skill">Linux</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Noel · Nyeri, Kenya 🇰🇪
+  </footer>
+
+</body>
+</html>
